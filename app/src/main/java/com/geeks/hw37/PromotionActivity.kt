@@ -15,6 +15,6 @@ class PromotionActivity : AppCompatActivity() {
         binding = ActivityPromotionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.tvSongName.text =
-            intent.getSerializableExtra(BottomFragment.SONG, Song::class.java)?.name
+            intent.getSerializableExtra(MainActivity.SONG, Song::class.java)?.name
     }
 }

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.geeks.hw37.databinding.FragmentTopBinding
 
-class TopFragment : Fragment() {
+class TopFragment(private val song: Song) : Fragment() {
     private lateinit var binding: FragmentTopBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -15,5 +15,17 @@ class TopFragment : Fragment() {
     ): View {
         binding = FragmentTopBinding.inflate(layoutInflater)
         return binding.root
+    }
+
+    fun setSong(song: Song) {
+        binding.apply {
+            tvSongName.text = song.name
+            tvArtistName.text = song.artist
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setSong(song)
     }
 }
